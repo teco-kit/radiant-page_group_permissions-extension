@@ -2,8 +2,8 @@ UserActionObserverExtensions = Proc.new do
   observe User, Page, Layout, Snippet, Group
 end
 
-PageControllerExtensions = Proc.new do
-  only_allow_access_to :new, :edit,
+PagesControllerExtensions = Proc.new do
+  only_allow_access_to :new, :edit, :remove, :add_part,
     :if => :user_is_in_page_group,
     :denied_url => { :controller => 'page', :action => 'index' },
     :denied_message => 'You must have group privileges to perform this action.'

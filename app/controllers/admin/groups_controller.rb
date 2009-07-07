@@ -1,10 +1,10 @@
-class Admin::GroupController < Admin::AbstractModelController
+class Admin::GroupsController < Admin::ResourceController
   model_class Group
 
   only_allow_access_to :add_page, :add_member, :remove_member, :new, :edit, :remove, :index,
-  :when => [:admin],
-  :denied_url => { :controller => 'page', :action => 'index' },
-  :denied_message => 'You must have administrator privileges to perform this action.'
+    :when => [:admin],
+    :denied_url => { :controller => 'page', :action => 'index' },
+    :denied_message => 'You must have administrator privileges to perform this action.'
 
   def add_page
     page = Page.find params[:page_id]
@@ -41,7 +41,7 @@ class Admin::GroupController < Admin::AbstractModelController
       flash[:error] = "Please select a user to add to #{@group.name}."
     end
   ensure
-    redirect_to :action => 'index'
+    redirect_to admin_groups_url
   end
 
   def remove_member
@@ -52,7 +52,7 @@ class Admin::GroupController < Admin::AbstractModelController
       @group.users.delete @user
       @group.save
       flash[:notice] = "#{@user.name} removed from #{@group.name}."
-      redirect_to :action => 'index'
+      redirect_to admin_groups_url
     end
   rescue
     if @group.nil?
@@ -60,6 +60,6 @@ class Admin::GroupController < Admin::AbstractModelController
     elsif @user.nil?
       flash[:error] = "User not found for that user id."
     end
-    redirect_to :action => 'index'
+    redirect_to admin_groups_url
   end
 end
