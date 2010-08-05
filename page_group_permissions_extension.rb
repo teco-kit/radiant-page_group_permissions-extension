@@ -10,7 +10,7 @@ end
 
 class PageGroupPermissionsExtension < Radiant::Extension
   version "0.2"
-  description "Allows you to organize your users into groups and apply group based edit permissions to the page heirarchy."
+  description "Allows you to organize your users into groups and apply group based edit permissions to the page hierarchy."
   url "http://matt.freels.name"
   
   define_routes do |map|
