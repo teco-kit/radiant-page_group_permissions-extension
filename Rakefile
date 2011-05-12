@@ -1,3 +1,21 @@
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "radiant-page_group_permissions-extension"
+    gem.summary = %Q{Page Group Permissions Extension for Radiant CMS}
+    gem.description = %Q{Enables you to organize users into groups and apply group-based edit permissions to the page hierarchy.}
+    gem.email = "avonderluft@avlux.net"
+    gem.homepage = "https://github.com/avonderluft/radiant-page_group_permissions-extension"
+    gem.authors = ['Matt Freels','Nikos Dimitrakopoulos','Jim Gay','Matthew Bass','Andrew vonderLuft']
+    gem.add_dependency 'radiant', ">=0.9.1"
+    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+  end
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. This is only required if you plan to package page_group_permissions as a gem."
+end
+
+
+
 # I think this is the one that should be moved to the extension Rakefile template
 
 # In rails 1.2, plugins aren't available in the path until they're loaded.

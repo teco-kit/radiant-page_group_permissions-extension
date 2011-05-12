@@ -12,7 +12,7 @@ class PageGroupPermissionsExtension < Radiant::Extension
 
   version "#{File.read(File.expand_path(File.dirname(__FILE__)) + '/VERSION')}"
   description "Enables you to organize users into groups and apply group-based edit permissions to the page hierarchy."
-  url "https://github.com/avonderluft/radiant-page-group-permissions-extension"  
+  url "https://github.com/avonderluft/radiant-page_group_permissions-extension"  
 
   def activate
     if Group.table_exists?
