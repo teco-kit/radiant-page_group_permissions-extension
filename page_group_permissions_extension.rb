@@ -9,23 +9,11 @@ rescue MissingSourceFile
 end
 
 class PageGroupPermissionsExtension < Radiant::Extension
-  version "0.2"
-  description "Allows you to organize your users into groups and apply group based edit permissions to the page hierarchy."
-  url "http://matt.freels.name"
-  
-  define_routes do |map|
-    if Group.table_exists?
-      map.namespace :admin do |admin|
-        admin.resources :groups
-      end
-      map.with_options(:controller => 'admin/groups') do |group|
-        group.remove_admin_group 'admin/groups/:id/remove', :action => 'remove', :conditions => {:method => :get}
-        group.add_member_admin_group 'admin/groups/:id/add_member', :action => 'add_member', :conditions => {:method => :post}
-        group.remove_member_admin_group 'admin/groups/:group_id/remove_member/:id', :action => 'remove_member'
-      end
-    end
-  end
-  
+
+  version "#{File.read(File.expand_path(File.dirname(__FILE__)) + '/VERSION')}"
+  description "Enables you to organize users into groups and apply group-based edit permissions to the page hierarchy."
+  url "https://github.com/avonderluft/radiant-page-group-permissions-extension"  
+
   def activate
     if Group.table_exists?
       User.module_eval &UserModelExtensions
@@ -45,8 +33,5 @@ class PageGroupPermissionsExtension < Radiant::Extension
       admin.pages.edit.add :parts_bottom, "page_group_form_part", :after => "edit_timestamp"
     end
   end
-  
-  def deactivate
-  end
-  
+
 end
