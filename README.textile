@@ -1,8 +1,10 @@
-= Page Group Permissions
+h1. Page Group Permissions
 
 Created by Matt Freels
 
 This extension allows you to organize your users into groups and divide up site-editing privileges accordingly. It requires Radiant 0.8+ and the Shards extension found in the official Radiant repository.
+
+h2. Installation
 
 To install, add page_group_permissions to vendor/extensions, and run:
 
@@ -19,5 +21,21 @@ Enjoy!
 
 Feedback appreciated at matt@freels.name
 
+h2. Revision History
 
-* 7/7/09 - Updated to work with Radiant 0.8+ [Matthew Bass]
+* 5/12/2011 - Compatible with >= 0.9 [Andrew vonderLuft, Jim Gay]
+* 7/7/2009 - Updated to work with Radiant 0.8+ [Matthew Bass]
+
+h2. To do
+
+* Update Group index view to conform to Blade UI
+* Create Help file for Help extension
+* Gemify
+
+h2. Contributors
+
+* Matt Freels
+* Nikos Dimitrakopoulos
+* Jim Gay
+* Matthew Bass
+* Andrew vonderLuft
