@@ -17,7 +17,7 @@
           %td.add-child
             - if User.find(:all).count > Group.find(group.id).users.count
               - form_tag add_member_admin_group_path(group) do
-                = select_tag :user_id, options_for_select(User.find(:all, :order => 'name ASC').reject{|u| Group.find(group.id).users.include? u }.map{|u| [u.name, u.id]}.unshift(['—', '']))
+                = select_tag :user_id, options_for_select(User.find(:all, :order => 'name ASC').reject{|u| Group.find(group.id).users.include? u }.map{|u| [u.name, u.id]}.unshift(['--', '']))
                 = submit_tag t('add_user_to_group'), :class => 'action'
                 /= image_submit_tag('admin/plus.png', :alt => 'Add Group Member') + ' ' + t('add_member')
                 /= link_to_remote 'submit', :url => add_member_admin_group_path(group), :submit => "form"
